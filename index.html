@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="/input.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="h-screen w-screen flex align-middle bg-no-repeat bg-cover"
+    style="background-image: url(bg.jpg)"
+  >
+    <div
+      class="calculator 2xl:w-3/12 xl:w-1/4 lg:w-2/6 md:w-2/4 sm:w-3/5 w-4/5 mx-auto my-auto bg-white border-2 border-white"
+    >
+      <!-- !input field  -->
+      <div class="row">
+        <form name="cacl">
+          <input
+            type="text"
+            class="bg-gradient-to-r from-blue-700 to-purple-600 w-full text-7xl font-bold text-slate-200 py-8 px-10 drop-shadow-xl"
+            id="inputField"
+            name="display"
+            readonly
+          />
+        </form>
+      </div>
+      <div id="first" class="block">
+        <!-- *First 6 buttons pair  -->
+
+        <div class="grid grid-rows-2 grid-flow-col">
+          <!-- !Button 7  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue(7)"
+          >
+            7
+          </button>
+          <!-- !Button 8  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue(4)"
+          >
+            4
+          </button>
+          <!-- !Button 8  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue(8)"
+          >
+            8
+          </button>
+          <!-- !Button 5  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue(5)"
+          >
+            5
+          </button>
+          <!-- !Button 9  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue(9)"
+          >
+            9
+          </button>
+
+          <!-- !Button 6  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue(6)"
+          >
+            6
+          </button>
+          <!-- !clear  -->
+          <button
+            class="text-white text-4xl rounded-r-full rounded-t-none rounded-b-full rounded-l-full hover:text-white bg-purple-600 hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="clearFunc()"
+          >
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+          <!-- !Slider  -->
+          <button
+            class="text-white text-4xl rounded-l-full bg-gray-300 hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-l-full hover:ease duration-300"
+            onclick="slider()"
+          >
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+        </div>
+
+        <!-- *Next 6 buttons pairs  -->
+
+        <div class="grid grid-rows-2 grid-flow-col">
+          <!-- !Button 1  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue(1)"
+          >
+            1
+          </button>
+          <!-- !Button Del  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="Del()"
+          >
+            Del
+          </button>
+          <!-- !Button 2  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue(2)"
+          >
+            2
+          </button>
+          <!-- !Button 0  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue(0)"
+          >
+            0
+          </button>
+          <!-- !Button 3  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue(3)"
+          >
+            3
+          </button>
+          <!-- !Button .  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue('.')"
+          >
+            .
+          </button>
+          <!-- !Button =  -->
+          <button
+            class="row-span-2 text-white text-5xl bg-gradient-to-b from-blue-600 to-purple-600 p-2 rounded-t-full rounded-b-full hover:text-black px-5 py-10 hover:ease-in duration-300"
+            onclick="EvalueateFunc()"
+          >
+            =
+          </button>
+        </div>
+
+        <div class="grid grid-rows-1 grid-flow-col">
+          <!-- !Button /  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue('/')"
+          >
+            /
+          </button>
+          <!-- !Button X  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue('*')"
+          >
+            x
+          </button>
+          <!-- !Button -  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+            onclick="insertValue('-')"
+          >
+            -
+          </button>
+          <!-- !Button +  -->
+          <button
+            class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:ease duration-300 hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full"
+            onclick="insertValue('+')"
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <div id="second" class="hidden">
+        <div id="firstInv" class="block">
+          <div class="grid grid-rows-5 grid-flow-col bg-gray-400">
+            <!--! Button 7  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue(7)"
+            >
+              7
+            </button>
+            <!-- !Slider  -->
+            <button
+              class="text-black text-4xl rounded-l-full bg-white hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-l-full hover:ease duration-300"
+              onclick="slider()"
+            >
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <!--! Button 1  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue(1)"
+            >
+              1
+            </button>
+
+            <!-- !Button Del  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="Del()"
+            >
+              Del
+            </button>
+            <!-- !Button /  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue('/')"
+            >
+              /
+            </button>
+
+            <!-- !Button Inv  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="Inv()"
+            >
+              Inv
+            </button>
+            <!-- !Button sin  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              value="sin"
+              onclick="document.cacl.display.value=Math.sin(document.cacl.display.value).toFixed(5)"
+            >
+              sin
+            </button>
+            <!-- !Button In  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.log(document.cacl.display.value).toFixed(5)"
+            >
+              In
+            </button>
+            <!-- !Button 𝝿  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value+=(Math.PI).toFixed(8)"
+            >
+              π
+            </button>
+            <!-- !Button x  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue('*')"
+            >
+              x
+            </button>
+            <!-- !Button Deg  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="Deg()"
+            >
+              Deg
+            </button>
+            <!-- !Button cos  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.cos(document.cacl.display.value).toFixed(5)"
+            >
+              cos
+            </button>
+            <!-- !Button log  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.log10(document.cacl.display.value).toFixed(5)"
+            >
+              log
+            </button>
+            <!-- !Button e  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=eval(Math.E.toFixed(5))"
+            >
+              e
+            </button>
+            <!-- !Button -  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue('-')"
+            >
+              -
+            </button>
+            <!-- !Button %  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="insertValue('%')"
+            >
+              %
+            </button>
+            <!-- !Button tan  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.tan(document.cacl.display.value).toFixed(5)"
+            >
+              tan
+            </button>
+            <!-- !Button !  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="insertValue('!')"
+            >
+              !
+            </button>
+            <!-- !Button ^  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="insertValue('^')"
+            >
+              ^
+            </button>
+            <!-- !Button + -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue('+')"
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <div id="secondInv" class="hidden">
+          <div class="grid grid-rows-5 grid-flow-col bg-gray-400">
+            <!--! Button 7  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue(7)"
+            >
+              7
+            </button>
+            <!-- !Slider  -->
+            <button
+              class="text-black text-4xl rounded-l-full bg-white hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-l-full hover:ease duration-300"
+              onclick="slider()"
+            >
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <!--! Button 1  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue(1)"
+            >
+              1
+            </button>
+
+            <!-- !Button Del  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="Del()"
+            >
+              Del
+            </button>
+            <!-- !Button /  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue('/')"
+            >
+              /
+            </button>
+
+            <!-- !Button Inv  -->
+            <button
+              class="text-black bg-gradient-to-r from-blue-600 to-purple-600 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="Inv()"
+            >
+              Inv
+            </button>
+            <!-- !Button sin Inverse  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              value="sin"
+              onclick="document.cacl.display.value=Math.asin(document.cacl.display.value).toFixed(5)"
+            >
+              sin<sup>-1</sup>
+            </button>
+            <!-- !Button ex  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.pow(Math.E,document.cacl.display.value).toFixed(5)"
+            >
+              e<sup>x</sup>
+            </button>
+            <!-- !Button x3  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.pow(document.cacl.display.value,2).toFixed(2)"
+            >
+              x<sup>3</sup>
+            </button>
+            <!-- !Button x  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue('*')"
+            >
+              x
+            </button>
+            <!-- !Button Deg  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="Deg()"
+            >
+              Deg
+            </button>
+            <!-- !Button cos inverse -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.acos(document.cacl.display.value).toFixed(5)"
+            >
+              cos<sup>-1</sup>
+            </button>
+            <!-- !Button 10x  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.pow(10,document.cacl.display.value).toFixed(0)"
+            >
+              10<sup>x</sup>
+            </button>
+            <!-- !Button exp  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.exp(document.cacl.display.value).toFixed(3)"
+            >
+              exp
+            </button>
+            <!-- !Button -  -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue('-')"
+            >
+              -
+            </button>
+            <!-- !Button %  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="insertValue('%')"
+            >
+              %
+            </button>
+            <!-- !Button tan inverse -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.atan(document.cacl.display.value).toFixed(5)"
+            >
+              tan<sup>-1</sup>
+            </button>
+            <!-- !Button √  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.sqrt(document.cacl.display.value).toFixed(1)"
+            >
+              √
+            </button>
+            <!-- !Button x2  -->
+            <button
+              class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
+              onclick="document.cacl.display.value=Math.pow(document.cacl.display.value,2).toFixed(2)"
+            >
+              x<sup>2</sup>
+            </button>
+            <!-- !Button + -->
+            <button
+              class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
+              onclick="insertValue('+')"
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/main.js"></script>
+  </body>
+</html>
